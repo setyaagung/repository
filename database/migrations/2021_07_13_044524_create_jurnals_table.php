@@ -16,6 +16,8 @@ class CreateJurnalsTable extends Migration
         Schema::create('jurnals', function (Blueprint $table) {
             $table->bigIncrements('id_jurnal');
             $table->text('judul');
+            $table->text('abstrak');
+            $table->text('kata_kunci');
             $table->date('tahun_terbit');
             $table->string('file');
             $table->timestamps();

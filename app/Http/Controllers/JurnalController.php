@@ -41,8 +41,10 @@ class JurnalController extends Controller
     {
         $request->validate([
             'judul' => 'required',
+            'abstrak' => 'required',
+            'kata_kunci' => 'required',
             'tahun_terbit' => 'required',
-            'file' => 'required|mimes:pdf|max:10000',
+            'file' => 'required|mimes:pdf|max:2048',
         ]);
         $data = $request->all();
         if ($request->hasFile('file')) {

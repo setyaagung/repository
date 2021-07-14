@@ -24,6 +24,9 @@
                             <h3>{{ $author}}</h3>
                             <p>Author</p>
                         </div>
+                        <div class="icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
                         <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
@@ -33,6 +36,9 @@
                         <div class="inner">
                             <h3>{{ $jurnal}}</h3>
                             <p>Jurnal</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-file-alt"></i>
                         </div>
                         <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>

@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none !important;
+    outline: none !important;
+    text-decoration: none !important;
+    font-weight: 400;
+    transition: all .2s linear;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+section {
+    overflow: hidden;
+}
+
+.upper-bar {
+    text-align: right;
+    background-color: #161616;
+    color: white;
+    padding: 8px;
+    font-size: 14px;
+}
+
+.upper-bar a {
+    color: white;
+}
+
+.upper-bar a:hover {
+    color: #FF7600;
+}
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.jurnal-title .title:hover {
+    color: #FF7600 !important;
+}
+
+.page-item.active .page-link {
+    background-color: #04009A;
+}
+
+.page-item.disabled .page-link {
+    color: #04009A;
+}
+
+.page-item .page-link {
+    color: #04009A;
+}
+
+.footer .row .copy:hover {
+    color: #FF7600 !important;
+}

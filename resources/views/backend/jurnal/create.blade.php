@@ -32,6 +32,26 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label for="">Abstrak</label>
+                                    <textarea name="abstrak" class="form-control @error('abstrak') is-invalid @enderror" rows="10">{{ old('abstrak')}}</textarea>
+                                    @error('abstrak')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="">Kata Kunci</label>
+                                    <textarea name="kata_kunci" class="form-control @error('kata_kunci') is-invalid @enderror" rows="2">{{ old('kata_kunci')}}</textarea>
+                                    @error('kata_kunci')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group">
                                     <label for="">Tahun Terbit</label>
                                     <input type="date" name="tahun_terbit" class="form-control @error('tahun_terbit') is-invalid @enderror">
                                     @error('tahun_terbit')
