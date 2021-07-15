@@ -43,7 +43,35 @@
         </div>
     </header>
 
-    @yield('content')
+    <div class="container">
+        @yield('search')
+        <div class="row">
+            <div class="col-md-9">
+                @yield('content')
+            </div>
+            <div class="col-md-3">
+                <p class="mt-4" style="margin-bottom: 5px;font-size: 14px">BROWSE</p>
+                <ul class="list-group" style="font-size: 14px">
+                    <li class="list-group-item" style="background: #161616;color:white;" aria-current="true">All of Cendekiaku Repository</li>
+                    <li class="list-group-item" style="border:1px solid #eaeaea !important">
+                        Author
+                        <span class="badge badge-primary badge-pill">{{ $countAuthor}}</span>
+                    </li>
+                    <li class="list-group-item" style="border:1px solid #eaeaea !important">
+                        Jurnal
+                        <span class="badge badge-primary badge-pill">{{ $countJurnal}}</span>
+                    </li>
+                </ul>
+
+                <p class="mt-4" style="margin-bottom: 5px;font-size: 14px">MY ACCOUNT</p>
+                <ul class="list-group" style="font-size: 14px">
+                    <li class="list-group-item" style="border:1px solid #eaeaea !important">
+                        <a href="{{ route('login')}}" class="text-dark side-login">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <div class="footer mt-5" style="min-height: 50px">
         <div class="container">
             <hr style="border-top: 1px solid #eaeaea !important;margin-top: -2px;">

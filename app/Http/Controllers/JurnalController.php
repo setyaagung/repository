@@ -50,7 +50,9 @@ class JurnalController extends Controller
         $data = $request->all();
         if ($request->hasFile('file')) {
             $file = $request->file('file');
-            $data['file'] = $file->store('file/jurnal', 'public');
+            $file_extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $file_extension;
+            $data['file'] = Storage::putFileAs('public/file/jurnal', $request->file('file'), $filename);
         }
         $jurnal = Jurnal::create($data);
         foreach (request()->id_author as $key => $value) {
@@ -106,7 +108,9 @@ class JurnalController extends Controller
         if ($request->hasFile('file')) {
             Storage::delete($jurnal->file);
             $file = $request->file('file');
-            $data['file'] = $file->store('file/jurnal', 'public');
+            $file_extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $file_extension;
+            $data['file'] = Storage::putFileAs('public/file/jurnal', $request->file('file'), $filename);
         }
         $jurnal->update($data);
         return redirect()->route('jurnal.index')->with('update', 'Data jurnal berhasil diperbarui');

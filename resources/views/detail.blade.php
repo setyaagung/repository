@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-md-9">
                     <h6>Abstrak</h6>
-                    <p style="font-size: 14px" class="text-justify">{{ $jurnal->abstrak}}</p>
+                    <p style="font-size: 14px !important" class="text-justify">{!! $jurnal->abstrak !!}</p>
                 </div>
             </div>
         </div>

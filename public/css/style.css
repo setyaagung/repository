@@ -71,3 +71,16 @@ section {
 .footer .row .copy:hover {
     color: #FF7600 !important;
 }
+
+.badge-primary {
+    background-color: #161616 !important;
+    color: white !important;
+}
+
+.list-group a:hover {
+    color: #FF7600 !important;
+}
+
+.form-control:focus {
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 4px #161616;
+}

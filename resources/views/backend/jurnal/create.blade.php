@@ -112,7 +112,20 @@
 @push('scripts')
 <script>
     $(document).ready(function(){
-
+        $('#summernote').summernote({
+            toolbar: [
+                // [groupName, [list of button]]
+                ['fontsize', ['fontsize']],
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['fontname', ['fontname']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']],
+            ]
+        });
         $('.addRow').on('click',function(){
             addRow();
         });

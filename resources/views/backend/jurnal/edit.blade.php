@@ -1,6 +1,6 @@
 @extends('layouts.back-main')
 
-@section('title','Tambah Jurnal')
+@section('title','Edit Jurnal')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -15,7 +15,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title font-weight-bold">
-                                Tambah Jurnal
+                                Edit Jurnal
                             </h3>
                         </div>
                         <div class="card-body">
@@ -34,7 +34,7 @@
 
                                 <div class="form-group">
                                     <label for="">Abstrak</label>
-                                    <textarea name="abstrak" class="form-control @error('abstrak') is-invalid @enderror" rows="10">{{ $jurnal->abstrak}}</textarea>
+                                    <textarea id="summernote" name="abstrak" class="form-control @error('abstrak') is-invalid @enderror" rows="10">{{ $jurnal->abstrak}}</textarea>
                                     @error('abstrak')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -82,3 +82,24 @@
         </div>
     </section>
 @endsection
+
+@push('scripts')
+<script>
+    $(document).ready(function(){
+        $('#summernote').summernote({
+            toolbar: [
+                // [groupName, [list of button]]
+                ['fontsize', ['fontsize']],
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['fontname', ['fontname']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']],
+            ]
+        });
+    });
+</script>
+@endpush
