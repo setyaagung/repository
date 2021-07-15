@@ -6,6 +6,7 @@ use App\Model\Author;
 use App\Model\Jurnal;
 use App\Model\JurnalAuthor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class JurnalController extends Controller
 {
@@ -80,7 +81,8 @@ class JurnalController extends Controller
      */
     public function edit($id)
     {
-        //
+        $jurnal = Jurnal::findOrFail($id);
+        return view('backend.jurnal.edit', compact('jurnal'));
     }
 
     /**
@@ -92,7 +94,22 @@ class JurnalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $jurnal = Jurnal::findOrFail($id);
+        $request->validate([
+            'judul' => 'required',
+            'abstrak' => 'required',
+            'kata_kunci' => 'required',
+            'tahun_terbit' => 'required',
+            'file' => 'mimes:pdf|max:2048',
+        ]);
+        $data = $request->all();
+        if ($request->hasFile('file')) {
+            Storage::delete($jurnal->file);
+            $file = $request->file('file');
+            $data['file'] = $file->store('file/jurnal', 'public');
+        }
+        $jurnal->update($data);
+        return redirect()->route('jurnal.index')->with('update', 'Data jurnal berhasil diperbarui');
     }
 
     /**

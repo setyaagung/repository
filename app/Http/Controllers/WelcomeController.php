@@ -16,4 +16,10 @@ class WelcomeController extends Controller
         }
         return view('welcome', compact('jurnals'));
     }
+    public function detail($id, $tanggal)
+    {
+        $jurnal = Jurnal::findOrFail($id);
+        $tanggal = $jurnal->tanggal_terbit;
+        return view('detail', \compact('jurnal', 'tanggal'));
+    }
 }
