@@ -126,6 +126,7 @@ class JurnalController extends Controller
     {
         $jurnal = Jurnal::findOrFail($id);
         $jurnal->delete();
+        Storage::delete($jurnal->file);
         return redirect()->route('jurnal.index')->with('delete', 'Data jurnal berhasil dihapus');
     }
 }

@@ -39,7 +39,7 @@
                         @foreach ($jurnal->jurnalAuthors as $jurnalAuthor)
                             {{ $jurnalAuthor->author->nama_author}} |
                         @endforeach
-                        ({{ $jurnal->tahun_terbit}})
+                        ({{ \Carbon\Carbon::parse($jurnal->tahun_terbit)->format('Y')}})
                     </p>
                     <p style="font-size: 14px;margin-top: -15px" class="text-justify">{!! Str::limit($jurnal->abstrak,300) !!}</p>
                     @if ($jurnal->file == null)

@@ -48,7 +48,8 @@
                                 <thead>
                                     <tr>
                                         <th>NO</th>
-                                        <th style="width: 60%">JUDUL</th>
+                                        <th style="width: 40%">JUDUL</th>
+                                        <th>AUTHOR</th>
                                         <th>FILE</th>
                                         <th>AKSI</th>
                                     </tr>
@@ -58,6 +59,12 @@
                                         <tr>
                                             <td>{{ $loop->iteration}}</td>
                                             <td>{{ $jurnal->judul}}</td>
+                                            <td>
+                                                @foreach ($jurnal->jurnalAuthors as $item)
+                                                    {{ $item->author->nama_author}} |
+                                                @endforeach
+                                                ({{ \Carbon\Carbon::parse($jurnal->tahun_terbit)->format('Y')}})
+                                            </td>
                                             <td>
                                                 <a href="{{ Storage::url($jurnal->file)}}" class="btn btn-sm btn-default" target="_blank"><i class="fas fa-file"></i> Buka File</a>
                                             </td>

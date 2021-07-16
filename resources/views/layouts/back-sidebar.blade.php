@@ -41,12 +41,14 @@
                         <p>Jurnal</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ route('user.index')}}" class="nav-link {{ (request()->segment(1) == 'user') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-user"></i>
-                        <p>Kelola Pengguna</p>
-                    </a>
-                </li>
+                @if (Auth::user()->id == 1)
+                    <li class="nav-item">
+                        <a href="{{ route('user.index')}}" class="nav-link {{ (request()->segment(1) == 'user') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-user"></i>
+                            <p>Kelola Pengguna</p>
+                        </a>
+                    </li>
+                @endif
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
