@@ -44,6 +44,28 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title font-weight-bold">
+                                Aturan Input Jurnal :
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <ol>
+                                <li>Login ke sistem sesuai dengan email dan password</li>
+                                <li>Pilih menu jurnal</li>
+                                <li>Pilih tombol tambah pada tampilan data jurnal</li>
+                                <li>Inputkan sesuai dengan form</li>
+                                <li>Pada form pengisian abstrak diwajibkan ukuran font <b>14</b>, font style <b>Roboto</b>, Paragraph <b>Justify Full</b></li>
+                                <li>Jika pada form author belum terdapat nama author yang akan diinputkan, maka harus mengisi dulu pada menu author</li>
+                                <li>Jika sudah klik tombol simpan untuk melakukan submit</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 @endsection

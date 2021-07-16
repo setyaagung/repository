@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
     <link rel="shortcut icon" href="{{ asset('img/logo.png')}}" type="image/x-icon">
     <title>@yield('title')</title>
+    <meta name="title" content="STIE Cendekia Karya Utama | Cendekiaku Repository">
+    <meta name="description" content="STIE Cendekia Karya Utama | Cendekiaku Repository">
+    <meta name="site_name" content="Klinik Sumber Medika">
 </head>
 <body>
     <header>
