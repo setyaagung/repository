@@ -24,5 +24,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
     Route::resource('author', 'AuthorController');
     Route::resource('jurnal', 'JurnalController');
+    //user
     Route::resource('user', 'UserController');
+    Route::get('/update-status/{id}', 'UserController@update_status');
+    Route::patch('/reset-password/{id}', 'UserController@reset_password')->name('reset-password');
 });

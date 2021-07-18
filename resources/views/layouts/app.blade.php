@@ -13,7 +13,7 @@
     <title>@yield('title')</title>
     <meta name="title" content="STIE Cendekia Karya Utama | Cendekiaku Repository">
     <meta name="description" content="STIE Cendekia Karya Utama | Cendekiaku Repository">
-    <meta name="site_name" content="Klinik Sumber Medika">
+    <meta name="site_name" content="STIE Cendekia Karya Utama">
 </head>
 <body>
     <header>
@@ -58,11 +58,11 @@
                     <li class="list-group-item" style="background: #161616;color:white;" aria-current="true">All of Cendekiaku Repository</li>
                     <li class="list-group-item" style="border:1px solid #eaeaea !important">
                         Author
-                        <span class="badge badge-primary badge-pill">{{ $countAuthor}}</span>
+                        <span class="badge badge-primary badge-pill">{{ \App\Model\Author::count()}}</span>
                     </li>
                     <li class="list-group-item" style="border:1px solid #eaeaea !important">
                         Jurnal
-                        <span class="badge badge-primary badge-pill">{{ $countJurnal}}</span>
+                        <span class="badge badge-primary badge-pill">{{ \App\Model\Jurnal::count()}}</span>
                     </li>
                 </ul>
 

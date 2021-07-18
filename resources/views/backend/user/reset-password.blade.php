@@ -19,18 +19,9 @@
                             </h3>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('user.reset-password',$user->id)}}" method="POST">
+                            <form action="{{ route('reset-password',$user->id)}}" method="POST">
                                 @csrf
                                 @method('PATCH')
-                                <div class="form-group">
-                                    <label for="">Email</label>
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}" autocomplete="email" disabled>
-                                    @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
                                 <div class="form-group">
                                     <label for="">Password</label>
                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">

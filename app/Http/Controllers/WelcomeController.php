@@ -21,10 +21,8 @@ class WelcomeController extends Controller
     }
     public function detail($id, $tanggal)
     {
-        $countJurnal = Jurnal::count();
-        $countAuthor = Author::count();
         $jurnal = Jurnal::findOrFail($id);
         $tanggal = $jurnal->tanggal_terbit;
-        return view('detail', \compact('jurnal', 'tanggal', 'countAuthor', 'countJurnal'));
+        return view('detail', \compact('jurnal', 'tanggal'));
     }
 }

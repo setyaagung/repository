@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -33,7 +34,8 @@ class LoginController extends Controller
             return 'dashboard';
         } else {
             Auth::logout();
-            return redirect()->back()->with('status', 'Akun anda sudah tidak aktif. Silahkan hubungi admin');
+            Session::flash('status', 'Akun anda sudah tidak aktif. Silahkan hubungi admin');
+            return 'login';
         }
     }
     /**
