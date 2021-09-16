@@ -1,6 +1,6 @@
 @extends('layouts.back-main')
 
-@section('title','Data Jurnal')
+@section('title','Data Edisi')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -15,9 +15,9 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title font-weight-bold">
-                                Data Jurnal
+                                Data Edisi
                             </h3>
-                            <a href="{{ route('jurnal.create')}}" class="btn btn-primary btn-sm float-right">Tambah</a>
+                            <a href="{{ route('edisi.create')}}" class="btn btn-primary btn-sm float-right">Tambah</a>
                         </div>
                         <div class="card-body">
                             @if ($message = Session::get('create'))
@@ -48,37 +48,32 @@
                                 <thead>
                                     <tr>
                                         <th>NO</th>
-                                        <th>EDISI</th>
-                                        <th style="width: 35%">JUDUL</th>
-                                        <th>AUTHOR</th>
-                                        <th>FILE</th>
+                                        <th>GAMBAR</th>
+                                        <th>TEMA</th>
+                                        <th>NAMA EDISI</th>
+                                        <th>TAHUN TERBIT</th>
+                                        <th>ISSN</th>
                                         <th>AKSI</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($jurnals as $jurnal)
+                                    @foreach ($edisis as $edisi)
                                         <tr>
                                             <td>{{ $loop->iteration}}</td>
                                             <td>
-                                                @if ($jurnal->id_edisi == null)
+                                                @if ($edisi->gambar == null)
 
                                                 @else
-                                                    {{ $jurnal->edisi->tema}} - {{ $jurnal->edisi->nama_edisi}}
+                                                    <img src="{{ Storage::url($edisi->gambar)}}" class="img-fluid" width="100" alt="">
                                                 @endif
                                             </td>
-                                            <td>{{ $jurnal->judul}}</td>
+                                            <td>{{ $edisi->tema}}</td>
+                                            <td>{{ $edisi->nama_edisi}}</td>
+                                            <td>{{ \Carbon\Carbon::parse($edisi->tahun_terbit)->isoFormat('D MMMM Y')}}</td>
+                                            <td>{{ $edisi->issn}}</td>
                                             <td>
-                                                @foreach ($jurnal->jurnalAuthors as $item)
-                                                    {{ $item->author->nama_author}} |
-                                                @endforeach
-                                                ({{ \Carbon\Carbon::parse($jurnal->tahun_terbit)->format('Y')}})
-                                            </td>
-                                            <td>
-                                                <a href="{{ Storage::url($jurnal->file)}}" class="btn btn-sm btn-default" target="_blank"><i class="fas fa-file"></i> Buka File</a>
-                                            </td>
-                                            <td>
-                                                <a href="{{ route('jurnal.edit',$jurnal->id_jurnal)}}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
-                                                <form action="{{ route('jurnal.destroy', $jurnal->id_jurnal)}}" method="POST" class="d-inline">
+                                                <a href="{{ route('edisi.edit',$edisi->id_edisi)}}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
+                                                <form action="{{ route('edisi.destroy', $edisi->id_edisi)}}" method="POST" class="d-inline">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini??')"><i class="fas fa-trash"></i> Hapus</button>

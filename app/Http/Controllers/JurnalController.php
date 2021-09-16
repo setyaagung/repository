@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Author;
+use App\Model\Edisi;
 use App\Model\Jurnal;
 use App\Model\JurnalAuthor;
 use Illuminate\Http\Request;
@@ -29,7 +30,8 @@ class JurnalController extends Controller
     public function create()
     {
         $authors = Author::all();
-        return view('backend.jurnal.create', compact('authors'));
+        $edisis = Edisi::all();
+        return view('backend.jurnal.create', compact('authors', 'edisis'));
     }
 
     /**
@@ -84,7 +86,8 @@ class JurnalController extends Controller
     public function edit($id)
     {
         $jurnal = Jurnal::findOrFail($id);
-        return view('backend.jurnal.edit', compact('jurnal'));
+        $edisis = Edisi::all();
+        return view('backend.jurnal.edit', compact('jurnal', 'edisis'));
     }
 
     /**

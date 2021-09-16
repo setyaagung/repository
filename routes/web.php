@@ -13,6 +13,7 @@
 
 Route::get('/', 'WelcomeController@index')->name('welcome');
 Route::get('/handle/{id}/{tanggal}', 'WelcomeController@detail')->name('detail');
+Route::get('/editions/{id}', 'WelcomeController@edisi')->name('edisi');
 
 Auth::routes([
     'register' => false,
@@ -23,6 +24,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
     Route::resource('author', 'AuthorController');
+    //edisi
+    Route::resource('edisi', 'EdisiController');
     Route::resource('jurnal', 'JurnalController');
     //user
     Route::resource('user', 'UserController');

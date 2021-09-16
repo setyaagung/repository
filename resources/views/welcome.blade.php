@@ -41,6 +41,11 @@
                         @endforeach
                         ({{ \Carbon\Carbon::parse($jurnal->tahun_terbit)->format('Y')}})
                     </p>
+                    @if ($jurnal->id_edisi == null)
+
+                    @else
+                        <p style="margin-top: -17px;font-size:13px"><i class="font-weight-bold">{{ $jurnal->edisi->tema}} {{ $jurnal->edisi->nama_edisi}} ISSN {{ $jurnal->edisi->issn}} {{ \Carbon\Carbon::parse($jurnal->edisi->tahun_terbit)->isoFormat('MMMM Y')}}</i></p>
+                    @endif
                     <p style="font-size: 14px;margin-top: -15px" class="text-justify">{!! Str::limit($jurnal->abstrak,300) !!}</p>
                     @if ($jurnal->file == null)
 

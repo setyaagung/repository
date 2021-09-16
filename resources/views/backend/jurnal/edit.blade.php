@@ -23,6 +23,20 @@
                                 @csrf
                                 @method('PATCH')
                                 <div class="form-group">
+                                    <label for="">Edisi Jurnal</label>
+                                    <select name="id_edisi" class="form-control @error('id_edisi') is-invalid @enderror">
+                                        <option value="">-- Pilih Edisi Jurnal --</option>
+                                        @foreach ($edisis as $edisi)
+                                            <option value="{{$edisi->id_edisi}}" {{ $jurnal->id_edisi == $edisi->id_edisi ? 'selected':''}}>{{ $edisi->tema}} - {{ $edisi->nama_edisi}}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('id_edisi')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
                                     <label for="">Judul</label>
                                     <textarea name="judul" class="form-control @error('judul') is-invalid @enderror" rows="4">{{ $jurnal->judul}}</textarea>
                                     @error('judul')

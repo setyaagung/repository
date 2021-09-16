@@ -36,6 +36,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('edisi.index')}}" class="nav-link {{ (request()->segment(1) == 'edisi') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-file-archive"></i>
+                        <p>Edisi</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('jurnal.index')}}" class="nav-link {{ (request()->segment(1) == 'jurnal') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-file-alt"></i>
                         <p>Jurnal</p>

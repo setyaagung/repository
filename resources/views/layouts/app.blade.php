@@ -72,6 +72,16 @@
                         <a href="{{ route('login')}}" class="text-dark side-login">Login</a>
                     </li>
                 </ul>
+
+                <p class="mt-4" style="margin-bottom: 5px;font-size: 14px">EDITIONS</p>
+                <ul class="list-group" style="font-size: 14px">
+                    <li class="list-group-item" style="background: #161616;color:white;" aria-current="true">Cendekiaku Repository Editions</li>
+                    @foreach ($edisis as $edisi)
+                        <li class="list-group-item" style="border:1px solid #eaeaea !important">
+                            <a href="{{ route('edisi',$edisi->id_edisi)}}" class="text-dark side-login">{{ $edisi->tema}} {{ $edisi->nama_edisi}}</a>
+                        </li>
+                    @endforeach
+                </ul>
             </div>
         </div>
     </div>
